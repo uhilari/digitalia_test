@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>HS</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="System.Reflection" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HS.Core\HS.Core.csproj" />
+    <ProjectReference Include="..\HS.EntityFramework\HS.EntityFramework.csproj" />
+    <ProjectReference Include="..\HS.MicrosoftDependency\HS.MicrosoftDependency.csproj" />
+    <ProjectReference Include="..\HS.WebApi\HS.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>

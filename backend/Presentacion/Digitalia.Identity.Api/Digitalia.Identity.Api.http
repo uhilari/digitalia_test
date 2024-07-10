@@ -1,0 +1,6 @@
+@Digitalia.Identity.Api_HostAddress = http://localhost:5174
+
+GET {{Digitalia.Identity.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

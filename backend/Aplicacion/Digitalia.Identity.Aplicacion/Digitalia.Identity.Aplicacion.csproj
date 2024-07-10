@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.35.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.35.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\HS.Config\HS.Config.csproj" />
+    <ProjectReference Include="..\..\Core\HS.Core\HS.Core.csproj" />
+    <ProjectReference Include="..\..\Dominio\Digitalia.Identity.Dominio\Digitalia.Identity.Dominio.csproj" />
+    <ProjectReference Include="..\..\Vertical\Digitalia.Identity.Model\Digitalia.Identity.Model.csproj" />
+  </ItemGroup>
+
+</Project>

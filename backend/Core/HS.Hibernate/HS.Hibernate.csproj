@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NHibernate" Version="5.3.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HS.Core\HS.Core.csproj" />
+  </ItemGroup>
+
+</Project>

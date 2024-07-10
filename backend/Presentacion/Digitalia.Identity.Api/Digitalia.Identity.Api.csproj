@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Aplicacion\Digitalia.Identity.Aplicacion\Digitalia.Identity.Aplicacion.csproj" />
+    <ProjectReference Include="..\..\Core\HS.Config\HS.Config.csproj" />
+    <ProjectReference Include="..\..\Core\HS.Core\HS.Core.csproj" />
+    <ProjectReference Include="..\..\Core\HS.EntityFramework\HS.EntityFramework.csproj" />
+    <ProjectReference Include="..\..\Core\HS.MicrosoftDependency\HS.MicrosoftDependency.csproj" />
+    <ProjectReference Include="..\..\Core\HS.WebApi\HS.WebApi.csproj" />
+    <ProjectReference Include="..\..\Dominio\Digitalia.Identity.Dominio\Digitalia.Identity.Dominio.csproj" />
+    <ProjectReference Include="..\..\Infraestructura\Digitalia.Identity.DataModel\Digitalia.Identity.DataModel.csproj" />
+    <ProjectReference Include="..\..\Vertical\Digitalia.Identity.Model\Digitalia.Identity.Model.csproj" />
+  </ItemGroup>
+
+</Project>
