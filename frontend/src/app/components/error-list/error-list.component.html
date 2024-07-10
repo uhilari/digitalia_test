@@ -1,0 +1,9 @@
+<h2 mat-dialog-title>{{ data.titulo }}</h2>
+<mat-dialog-content>
+  <mat-list>
+    <mat-list-item *ngFor="let err of data.errores">{{ err.Mensaje }}</mat-list-item>
+  </mat-list>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>Cerrar</button>
+</mat-dialog-actions>

@@ -1,0 +1,24 @@
+<div class="contenedor">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Cambiar Contraseña</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="grupo" class="full-width" (submit)="onSubmitCambioPwd()">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Contraseña Antigua</mat-label>
+          <input id="antiguoPassword" formControlName="antiguoPassword" type="password" matInput />
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Contraseña Nueva</mat-label>
+          <input id="nuevoPassword" formControlName="nuevoPassword" type="password" matInput />
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Confirmar Contraseña</mat-label>
+          <input id="confirmaPassword" formControlName="confirmaPassword" type="password" matInput />
+        </mat-form-field>
+        <button mat-stroked-button type="submit">Grabar</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

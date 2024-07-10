@@ -18,7 +18,7 @@ namespace HS
             Codigo = 50000;
         }
 
-        protected BaseException(int codigo, string mensaje): base(mensaje)
+        public BaseException(int codigo, string mensaje): base(mensaje)
         {
             Codigo = codigo;
         }

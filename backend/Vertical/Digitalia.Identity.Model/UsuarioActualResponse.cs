@@ -8,7 +8,6 @@ namespace Digitalia.Identity.Model
 {
     public class UsuarioActualResponse
     {
-        public required string Username { get; set; }
         public required string Nombres { get; set; }
         public required string Apellidos { get; set; }
         public required string Email { get; set; }

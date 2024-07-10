@@ -20,7 +20,8 @@ namespace Digitalia.Identity.Aplicacion
                 .AddCommand<RegistroCommand, RegistroCommandHandler>()
                 .AddCommand<CreateTokenCommand, CreateTokenCommandHandler, CreateTokenResponse>()
                 .AddCommand<UsuarioActualCommand, UsuarioActualCommandHandler, UsuarioActualResponse>()
-                .AddCommand<ActualizaUsuarioCommand, ActualizaUsuarioCommandHandler>();
+                .AddCommand<ActualizaUsuarioCommand, ActualizaUsuarioCommandHandler>()
+                .AddCommand<CambioPwdCommand, CambioPwdCommandHandler>();
         }
 
         static IServiceCollection AddValidators(this IServiceCollection services)

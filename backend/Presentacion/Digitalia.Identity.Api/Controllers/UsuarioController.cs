@@ -24,5 +24,12 @@ namespace Digitalia.Identity.Api.Controllers
             await Executor.ExecuteAsync(new ActualizaUsuarioCommand { Data = data });
             return Ok();
         }
+
+        [HttpPost("cambio-pwd")]
+        public async Task<IActionResult> CambioPwd([FromBody] CambioPwdRequest data)
+        {
+            await Executor.ExecuteAsync(new CambioPwdCommand { Data = data });
+            return Ok();
+        }
     }
 }
