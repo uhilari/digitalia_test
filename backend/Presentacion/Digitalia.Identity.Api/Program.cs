@@ -1,3 +1,4 @@
+using Digitalia.Identity.Api;
 using Digitalia.Identity.Aplicacion;
 using Digitalia.Identity.DataModel;
 using HS;
@@ -55,6 +56,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+//app.UseMiddleware<EncryptMiddleware>();
 app.UseMiddleware<GlobalErrorMiddleware>();
 
 app.UseHttpsRedirection();
