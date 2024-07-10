@@ -56,12 +56,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseMiddleware<EncryptMiddleware>();
-app.UseMiddleware<GlobalErrorMiddleware>();
-
 app.UseHttpsRedirection();
 
 app.UseCors();
+
+app.UseMiddleware<EncryptMiddleware>();
+app.UseMiddleware<GlobalErrorMiddleware>();
 
 app.UseAuthentication();
 app.UseAuthorization();

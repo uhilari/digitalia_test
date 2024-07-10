@@ -5,24 +5,32 @@ namespace Digitalia.Identity.Api
 {
     public class EncryptMiddleware(RequestDelegate next)
     {
+        class EncryptData { public required string Data { get; set; }  }
+
         private readonly RequestDelegate _next = next;
 
         public async Task Invoke(HttpContext context)
         {
             await modifiRequest(context.Request);
 
-            var response = context.Response;
-            var originalBody = response.Body;
-            using var newBody = new MemoryStream();
-            response.Body = newBody;
+            var originalBody = context.Response.Body;
+            using (var newBody = new MemoryStream())
+            {
+                context.Response.Body = newBody;
 
-            await _next.Invoke(context);
+                await _next.Invoke(context);
 
-            await modifyResponse(response);
+                newBody.Position = 0;
+                var responseBody = await new StreamReader(newBody).ReadToEndAsync();
 
-            newBody.Seek(0, SeekOrigin.Begin);
-            await newBody.CopyToAsync(originalBody);
-            response.Body = originalBody;
+                newBody.SetLength(0);
+                var data = Encoding.UTF8.GetBytes(Convert.ToBase64String(Encoding.UTF8.GetBytes(responseBody)));
+                newBody.Write(data, 0, data.Length);
+
+                newBody.Position = 0;
+                await newBody.CopyToAsync(originalBody);
+            }
+            
         }
 
         private async Task modifiRequest(HttpRequest httpRequest)
@@ -38,22 +46,6 @@ namespace Digitalia.Identity.Api
             httpRequest.Body = new MemoryStream(data);
             httpRequest.ContentLength = data.Length;
             httpRequest.ContentType = "application/json";
-        }
-
-        private async Task modifyResponse(HttpResponse httpResponse)
-        {
-            var stream = httpResponse.Body;
-            string originalContent;
-            using var reader = new StreamReader(stream, leaveOpen: true);
-            originalContent = await reader.ReadToEndAsync();
-
-            var modifiedContent = Convert.ToBase64String(Encoding.UTF8.GetBytes(originalContent));
-            stream.SetLength(0);
-
-            using var writer = new StreamWriter(stream, leaveOpen: true);
-            await writer.WriteAsync(modifiedContent);
-            await writer.FlushAsync();
-            httpResponse.ContentLength = stream.Length;
         }
     }
 }
